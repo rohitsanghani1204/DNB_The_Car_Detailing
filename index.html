@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNB The Car Detailing | Rajkot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --orange: #ff8c00;
+            --cyan: #00e5ff;
+            --dark: #0a0a0a;
+            --white: #ffffff;
+            --glass: rgba(10, 10, 10, 0.98);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: var(--dark); color: var(--white); overflow-x: hidden; }
+
+        /* --- Navbar UI --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 5%; background: var(--glass); position: fixed; 
+            width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #333;
+        }
+
+        .brand-container { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+        .logo-img { height: 55px; width: auto; }
+        
+        .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+        .main-title { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+        .sub-title { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 400; color: var(--orange); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .menu-btn { background: var(--orange); color: #000; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; border: none; font-size: 12px; }
+
+        /* --- Full Screen Menu --- */
+        .nav-overlay {
+            position: fixed; top: 0; left: -100%; width: 100%; height: 100vh;
+            background: rgba(10, 10, 10, 0.99); display: flex; flex-direction: column;
+            justify-content: center; align-items: center; transition: 0.5s; z-index: 2000;
+        }
+        .nav-overlay.open { left: 0; }
+        .close-btn { position: absolute; top: 30px; right: 8%; font-size: 30px; cursor: pointer; }
+
+        .nav-list { list-style: none; text-align: center; }
+        .nav-list li { margin: 15px 0; }
+        .nav-list a { text-decoration: none; color: white; font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-list a:hover { color: var(--cyan); letter-spacing: 3px; }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 90vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; padding: 20px;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+                        url('https://images.unsplash.com/photo-1552933529-e359b2477262?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover; background-position: center;
+        }
+        .hero h1 { font-family: 'Oswald', sans-serif; font-size: 3.5rem; text-transform: uppercase; line-height: 1.1; }
+        .hero h1 span { color: var(--cyan); }
+        .hero p { color: #ccc; margin-top: 15px; max-width: 600px; font-size: 1.1rem; }
+
+        .btn-group { display: flex; gap: 15px; margin-top: 30px; }
+        .btn { padding: 15px 35px; border-radius: 5px; text-decoration: none; font-weight: bold; text-transform: uppercase; transition: 0.3s; font-size: 14px; }
+        .btn-orange { background: var(--orange); color: black; }
+        .btn-outline { border: 2px solid white; color: white; }
+
+        /* --- Menu Footer Social Icons --- */
+        .menu-footer { position: absolute; bottom: 40px; text-align: center; width: 100%; }
+        .social-icons { display: flex; justify-content: center; gap: 30px; margin-top: 15px; }
+        .social-icon { font-size: 2.5rem; color: white; text-decoration: none; transition: 0.3s; }
+        .whatsapp:hover { color: #25D366; transform: translateY(-5px); }
+        .instagram:hover { color: #E1306C; transform: translateY(-5px); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .logo-img { height: 45px; }
+            .main-title { font-size: 18px; }
+            .btn-group { flex-direction: column; width: 80%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="brand-container">
+            <img src="dnb.jpg" alt="DNB Logo" class="logo-img">
+            <div class="brand-text">
+                <span class="main-title">DNB</span>
+                <span class="sub-title">The Car Detailing</span>
+            </div>
+        </a>
+        <button class="menu-btn" onclick="toggleMenu()">MENU ☰</button>
+    </nav>
+
+    <div class="nav-overlay" id="menuOverlay">
+        <div class="close-btn" onclick="toggleMenu()">✕</div>
+        <ul class="nav-list">
+            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="book.html" style="color: var(--orange);">Book Slot</a></li>
+        </ul>
+
+        <div class="menu-footer">
+            <p style="font-size: 10px; letter-spacing: 2px; color: #666; text-transform: uppercase;">Follow Us</p>
+            <div class="social-icons">
+                <a href="https://wa.me/919876543210?text=Hello%20DNB%20Detailing!" target="_blank" class="social-icon whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://instagram.com/your_username" target="_blank" class="social-icon instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero" id="home">
+        <h1>Restore Your <span>Car's Beauty</span></h1>
+        <p>Premium detailing and 9H ceramic coating studio based in Rajkot.</p>
+        <!--<div class="btn-group">
+            <a href="services.html" class="btn btn-orange">Explore Services</a>
+            <a href="book.html" class="btn btn-outline">Book Appointment</a>
+      </div>-->
+    </section>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('menuOverlay').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

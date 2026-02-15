@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Booking | DNB Detailing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff8c00; /* DNB Orange */
+            --bg: #050505;     /* Dark Black */
+            --card-bg: #121212;
+            --text: #ffffff;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .booking-card {
+            background: var(--card-bg);
+            padding: 35px 25px;
+            border-radius: 20px;
+            border: 1px solid #222;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+        }
+
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--primary);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+        }
+
+        .input-group { margin-bottom: 18px; }
+
+        label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 5px;
+            display: block;
+            font-weight: 600;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        input:focus { border-color: var(--primary); }
+
+        .book-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            border: none;
+            border-radius: 10px;
+            color: #000;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .book-btn:hover { background: #ffa500; transform: translateY(-2px); }
+
+        .footer-note {
+            text-align: center;
+            font-size: 11px;
+            color: #444;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="booking-card">
+    <h2>Book Your Slot</h2>
+    
+    <div class="input-group">
+        <label>Customer Name</label>
+        <input type="text" id="custName" placeholder="Enter your full name">
+    </div>
+
+    <div class="input-group">
+        <label>Car Model</label>
+        <input type="text" id="carModel" placeholder="e.g. Fortuner, Swift">
+    </div>
+
+    <div class="input-group">
+        <label>Service Selection</label>
+        <select id="serviceType">
+            <option value="Ceramic Coating">Ceramic Coating</option>
+            <option value="Graphene Coating">Graphene Coating</option>
+            <option value="Interior Deep Cleaning">Interior Cleaning</option>
+            <option value="Full Detailing">Full Detailing</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label>Preferred Time</label>
+        <select id="timeSlot">
+            <option value="Morning (10AM-1PM)">Morning (10AM-1PM)</option>
+            <option value="Afternoon (1PM-4PM)">Afternoon (1PM-4PM)</option>
+            <option value="Evening (4PM-8PM)">Evening (4PM-8PM)</option>
+        </select>
+    </div>
+
+    <button class="book-btn" onclick="sendToWhatsApp()">Confirm on WhatsApp</button>
+    
+    <p class="footer-note">DNB The Car Detailing Studio, Rajkot</p>
+</div>
+
+<script>
+    function sendToWhatsApp() {
+        // Form se data nikalna
+        let name = document.getElementById('custName').value;
+        let car = document.getElementById('carModel').value;
+        let service = document.getElementById('serviceType').value;
+        let time = document.getElementById('timeSlot').value;
+
+        // Validation check
+        if(name.trim() === "" || car.trim() === "") {
+            alert("Please fill in your details.");
+            return;
+        }
+
+        // --- APKA NUMBER (9510863604) ---
+        let myNumber = "919510863604"; 
+
+        // Message Format (%0A means Next Line)
+        let message = `*NEW BOOKING: DNB DETAILING*%0A` +
+                      `---------------------------%0A` +
+                      `*Customer:* ${name}%0A` +
+                      `*Car:* ${car}%0A` +
+                      `*Service:* ${service}%0A` +
+                      `*Time:* ${time}%0A%0A` +
+                      `Please confirm my booking.`;
+
+        // Direct WhatsApp Redirect
+        let waLink = `https://wa.me/qr/OD3INA5J7KRVE1`;
+
+        // Redirecting User
+        window.location.href = "https://wa.me/qr/OD3INA5J7KRVE1";
+    }
+</script>
+
+</body>
+</html>

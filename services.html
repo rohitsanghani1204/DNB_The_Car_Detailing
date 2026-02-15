@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | DNB Detailing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #ff8c00;
+            --cyan: #00e5ff;
+            --dark: #0a0a0a;
+            --card: #161616;
+            --white: #ffffff;
+        }
+
+        body { font-family: 'Poppins', sans-serif; background: var(--dark); color: var(--white); margin: 0; }
+        
+        /* Header Section */
+        .service-header {
+            padding: 100px 5% 50px;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1552933529-e359b2477262?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .service-header h1 { font-family: 'Oswald', sans-serif; font-size: 3rem; text-transform: uppercase; margin: 0; }
+        .service-header h1 span { color: var(--orange); }
+
+        /* Service Grid */
+        .container { padding: 50px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .service-card {
+            background: var(--card);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--cyan); box-shadow: 0 10px 30px rgba(0,229,255,0.1); }
+        
+        .service-img { height: 200px; background-size: cover; background-position: center; }
+        
+        .service-info { padding: 25px; flex-grow: 1; }
+        .service-info h3 { font-family: 'Oswald', sans-serif; font-size: 1.5rem; margin-bottom: 10px; color: var(--white); }
+        .service-info p { font-size: 0.9rem; color: #aaa; margin-bottom: 20px; line-height: 1.6; }
+        
+        .feature-list { list-style: none; padding: 0; margin-bottom: 25px; }
+        .feature-list li { font-size: 0.85rem; margin-bottom: 8px; color: #ccc; display: flex; align-items: center; }
+        .feature-list li::before { content: '✓'; color: var(--orange); margin-right: 10px; font-weight: bold; }
+
+        .price-tag { font-size: 1.5rem; font-weight: 700; color: var(--cyan); margin-bottom: 20px; display: block; }
+        
+        .btn-select {
+            display: block; width: 100%; padding: 12px; background: var(--orange); color: black;
+            text-align: center; text-decoration: none; font-weight: bold; border-radius: 5px;
+            text-transform: uppercase; transition: 0.3s;
+        }
+        .btn-select:hover { background: var(--white); }
+
+        @media (max-width: 600px) { .service-header h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+
+    <section class="service-header">
+        <h1>Premium <span>Services</span></h1>
+        <p>Choose the perfect treatment for your vehicle</p>
+    </section>
+
+    <div class="container">
+        <div class="service-card">
+            <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=500&q=80');"></div>
+            <div class="service-info">
+                <h3>Interior Detailing</h3>
+                <ul class="feature-list">
+                    <li>Deep Steam Cleaning</li>
+                    <li>Leather Conditioning</li>
+                    <li>Dashboard Polish</li>
+                    <li>Odor Elimination</li>
+                </ul>
+                <span class="price-tag">₹1,200</span>
+                <a href="book.html" class="btn-select">Book Now</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=500&q=80');"></div>
+            <div class="service-info">
+                <h3>Ceramic Coating</h3>
+                <ul class="feature-list">
+                    <li>9H Hardness Protection</li>
+                    <li>Hyper Hydrophobic Effect</li>
+                    <li>UV Ray Protection</li>
+                    <li>3-Year Warranty</li>
+                </ul>
+                <span class="price-tag">₹5,000</span>
+                <a href="book.html" class="btn-select">Book Now</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1552933529-e359b2477262?auto=format&fit=crop&w=500&q=80');"></div>
+            <div class="service-info">
+                <h3>Paint Correction</h3>
+                <ul class="feature-list">
+                    <li>Swirl Mark Removal</li>
+                    <li>Scratch Restoration</li>
+                    <li>Gloss Enhancement</li>
+                    <li>Mirror-Like Finish</li>
+                </ul>
+                <span class="price-tag">₹3,500</span>
+                <a href="book.html" class="btn-select">Book Now</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
