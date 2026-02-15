@@ -160,10 +160,10 @@
                       `Please confirm my booking.`;
 
         // Direct WhatsApp Redirect
-        let waLink = `https://wa.me/qr/OD3INA5J7KRVE1`;
+        let waLink = `https://api.whatsapp.com/send?phone=${myNumber}&text=${message}`;
 
         // Redirecting User
-        window.location.href = "https://wa.me/qr/OD3INA5J7KRVE1";
+        window.location.href = waLink;
     }
 </script>
 
